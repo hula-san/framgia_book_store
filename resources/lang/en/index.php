@@ -5,7 +5,7 @@ return [
     'new_items' => 'New books',
     'add_to_cart' => 'Add to cart',
     'add_to_wishlist' => 'Add to wishlist',
-    'add_to_compare' => 'Read more',
+    'add_to_compare' => 'Add to compare',
     'Category' => 'Category',
     'publisher' => 'publisher',
     'PriceRange' => 'Price Range',
@@ -20,4 +20,5 @@ return [
     'slide3_des' => 'Kỹ năng sống là những điều mà bạn bất kì một ai cũng cần có để luôn có một cuộc sống ý nghĩa và nhiều thú vị',
     'search_book' => 'Search book',
     'enter_name_book' => 'Enter name book',
+    'book_detail' => 'View Details',
 ];

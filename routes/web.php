@@ -11,12 +11,21 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/newbooks', 'HomeController@showNewbook')->name('newbooks');
+Route::get('/store', 'HomeController@store')->name('store');
+
 Route::get('search/', 'BookController@searchByName')->name('search');
 Route::get('category/{id?}', 'BookController@searchCategory')->name('category');
 Route::get('publishser/{id?}', 'BookController@searchPublisher')->name('publisher');
 Route::get('author/{id?}', 'BookController@searchAuthor')->name('author');
+
+Route::get('/cart', 'CartController@index');
+Route::post('/add-cart', 'CartController@cart')->name('cart');
+Route::post('/plus-cart', 'CartController@plusCart')->name('plusCart');
+Route::post('/minus-cart', 'CartController@minusCart')->name('minusCart');
+Route::post('/delete-cart', 'CartController@deleteCart')->name('deleteCart');
 
 Route::group(['prefix' => 'admin'], function () {
 	Route::resource('list-books', 'BookController');
@@ -25,4 +34,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('destroy', function() {
+	Cart::destroy();
+});
 

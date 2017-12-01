@@ -1,0 +1,21 @@
+<?php
+return [
+    'shopping_cart' => 'Shopping Cart',
+    'Item' => 'Item',
+    'Price' => 'Price',
+    'Quantity' => 'Quantity',
+    'Total' => 'Total',
+    'vnd' => 'vnd',
+    'increase' => '+',
+    'decrease' => '-',
+    'cartNull' => 'You have no items in the shopping cart!',
+    'continueText' => 'What would you like to continue?',
+    'continueBtn' => 'Continue',
+    'goStore' => 'Go to StoreBook',
+    'cart_sub_total' => 'Cart Sub Total',
+    'eco_tax' => 'Eco Tax',
+    'ship_cost' => 'Free',
+    'total' => 'Total',
+    'ship' => 'Shipping Cost',
+    'checkout' => 'Check out',
+];
