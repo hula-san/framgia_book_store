@@ -32,4 +32,14 @@ class HomeController extends Controller
 
         return view('newbooks', $data);
     }
+
+    public function store()
+    {
+        $data['books'] = Book::listNewBooks()->get();
+        $data['categories'] = Category::listCategories();
+        $data['publishers'] = Publisher::listPublishers();
+        $data['authors'] = Author::listAuthors();
+
+        return view('store', $data);
+    }
 }

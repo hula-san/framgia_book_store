@@ -25,6 +25,8 @@ class Book extends Model
     	'total_people_rate',
     ];
 
+    protected $appends = ['imagePath'];
+
     protected $dates = ['deleted_at'];
 
     public function cateOfBooks()
@@ -64,7 +66,8 @@ class Book extends Model
 
     public function getImagePathAttribute()
     {
-        return config('index.link.image_home_folder').$this->image;
+        return config('index.link.image_home_folder') . $this->image;
+        // return 'abc';
     }
 
     public function scopeSearch($query, $field, $value){

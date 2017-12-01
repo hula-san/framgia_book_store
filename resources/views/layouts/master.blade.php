@@ -13,6 +13,7 @@
         {{ Html::style('assets/animate.css/animate.css') }}
         {{ Html::style('css/main.css') }}
         {{ Html::style('css/responsive.css') }}
+        {{ Html::script('assets/jquery/dist/jquery.js') }}
         @yield('css')      
     </head>
     <!--/head-->
@@ -109,9 +110,9 @@
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="/" class="active"> {{ trans('master.Home') }} </a></li>
                                     <li class="dropdown">
-                                        <a href="#"> {{ trans('master.BookStore') }} <i class="fa fa-angle-down"></i></a>
+                                        <a href="{{ route('store') }}"> {{ trans('master.BookStore') }} <i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="/store"> {{ trans('master.AllBook') }} </a></li>
+                                            <li><a href="{{ route('store') }}"> {{ trans('master.AllBook') }} </a></li>
                                             <li><a href="/product"> {{ trans('master.BookEng') }} </a></li>
                                             <li><a href="/product"> {{ trans('master.BookVn') }} </a></li>
                                             <li><a href="/product"> {{ trans('master.EBook') }} </a></li>
@@ -144,6 +145,11 @@
             </div>
         </section>
         <!--/slider-->
+
+        @if(session('success_msg')))
+            @include('layouts.success')
+        @endif
+
         <section>
             <div class="container">
                 @yield('content')
@@ -225,7 +231,7 @@
             </div>
         </footer>
         <!--/Footer-->  
-        {{ Html::script('assets/jquery/dist/jquery.js') }}
+
         {{ Html::script('assets/bootstrap/dist/js/bootstrap.min.js') }}
         {{ Html::script('assets/scrollup/src/jquery.scrollUp.js') }}
         {{ Html::script('assets/price-range/price-range.js') }}
