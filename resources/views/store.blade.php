@@ -34,7 +34,7 @@
                                             <i class="fa fa-shopping-cart"></i>{{ trans('index.add_to_cart') }}
                                         </button>
                                     </form>
-                                    <a href='#' class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ trans('index.book_detail') }}</a>
+                                    <a href="{{ route('detailBook', ['id' => $book->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ trans('index.book_detail') }}</a>
                                 </div>
                             </div>
                         </div>

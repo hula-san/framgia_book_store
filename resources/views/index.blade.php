@@ -71,40 +71,40 @@
             <!--features_items-->
             <h2 class="title text-center">{{ trans('index.new_items') }}</h2>
             @foreach($books as $book)
-            <div class="col-sm-4">
-                <div class="product-image-wrapper">
-                    <div class="single-products">
-                        <div class="productinfo text-center">
-                            <img src="{{ $book->getImagePathAttribute() }}" alt=""/>
-                            <h2>{{ $book->price }}</h2>
-                            <p>{{ $book->name }}</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ trans('index.add_to_cart') }}</a>
-                            <a href='#' class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ trans('index.book_detail') }}</a>
-                        </div>
-                        <div class="product-overlay">
-                            <div class="overlay-content">
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="{{ $book->getImagePathAttribute() }}" alt=""/>
                                 <h2>{{ $book->price }}</h2>
-                                <p>{{ $book->description }}</p>
-                                <form method="POST" action="{{ route('cart') }}">
-                                    <input type="hidden" name="book_id" value="{{ $book->id }}">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button type="submit" class="btn btn-default add-to-cart">
-                                        <i class="fa fa-shopping-cart"></i>{{ trans('index.add_to_cart') }}
-                                    </button>
-                                </form>
+                                <p>{{ $book->name }}</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ trans('index.add_to_cart') }}</a>
                                 <a href='#' class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ trans('index.book_detail') }}</a>
                             </div>
+                            <div class="product-overlay">
+                                <div class="overlay-content">
+                                    <h2>{{ $book->price }}</h2>
+                                    <p>{{ $book->description }}</p>
+                                    <form method="POST" action="{{ route('cart') }}">
+                                        <input type="hidden" name="book_id" value="{{ $book->id }}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <button type="submit" class="btn btn-default add-to-cart">
+                                            <i class="fa fa-shopping-cart"></i>{{ trans('index.add_to_cart') }}
+                                        </button>
+                                    </form>
+                                    <a href="{{ route('detailBook', ['id' => $book->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ trans('index.book_detail') }}</a>
+                                </div>
+                            </div>
+                            <img src="{{ config('index.link.image_book_new') }}" class="new" alt="" />
                         </div>
-                        <img src="{{ config('index.link.image_book_new') }}" class="new" alt="" />
-                    </div>
-                    <div class="choose">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href="#"><i class="fa fa-plus-square"></i>{{ trans('index.add_to_wishlist') }}</a></li>
-                            <li><a href="#"><i class="fa fa-plus-square"></i>{{ trans('index.add_to_compare') }}</a></li>
-                        </ul>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a href="#"><i class="fa fa-plus-square"></i>{{ trans('index.add_to_wishlist') }}</a></li>
+                                <li><a href="#"><i class="fa fa-plus-square"></i>{{ trans('index.add_to_compare') }}</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
