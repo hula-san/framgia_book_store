@@ -85,7 +85,20 @@
                                     <li><a href="#"><i class="fa fa-star"></i> {{ trans('master.Wishlist') }} </a></li>
                                     <li><a href="/checkout"><i class="fa fa-crosshairs"></i> {{ trans('master.Checkout') }} </a></li>
                                     <li><a href="/cart"><i class="fa fa-shopping-cart"></i> {{ trans('master.Cart') }} </a></li>
-                                    <li><a href="/login"><i class="fa fa-lock"></i> {{ trans('master.Login') }} </a></li>
+                                    @if(Auth::check())
+                                        <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ trans('admin.logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            {{ csrf_field() }}
+                                        </form>
+                                        </li>
+                                    @else
+                                        <li><a href="/login"><i class="fa fa-lock"></i> {{ trans('master.Login') }} </a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>

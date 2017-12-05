@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Publisher;
 use App\Models\Author;
 use App\Models\CategoryOfBook;
+use App\Models\Review;
 
 class BookController extends Controller
 {
@@ -130,5 +131,16 @@ class BookController extends Controller
         $data['books'] = Book::listBookSearch('author_id', $idAuthor)->get();
 
         return view('search_result', $data);
+    }
+
+    public function getBookDetail($id)
+    {
+        $data['categories'] = Category::listCategories();
+        $data['publishers'] = Publisher::listPublishers();
+        $data['authors'] = Author::listAuthors();
+        $data['book'] = Book::listBookSearch('id', $id)->get()->first();
+        $data['reviews'] = Review::where('book_id', $id)->get();
+
+        return view('book_detail', $data);
     }
 }

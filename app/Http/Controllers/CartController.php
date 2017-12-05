@@ -28,11 +28,16 @@ class CartController extends Controller
     public function cart()
     {
         $book_id = Request::get('book_id');
+        if (Request::get('quantity')) {
+            $quantity = Request::get('quantity');    
+        } else {
+            $quantity = 1;
+        }
         $book = Book::find($book_id);
         Cart::add(
             $book_id, 
             $book->name, 
-            1, 
+            $quantity, 
             $book->price, 
             [
                 'image' => $book->imagePath,

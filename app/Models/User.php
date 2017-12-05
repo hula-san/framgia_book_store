@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function scopeUserSearch($query, $field, $id) 
+    {
+        return $query->where($field, $id);
+    }
 }
